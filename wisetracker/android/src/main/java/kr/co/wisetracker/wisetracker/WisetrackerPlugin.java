@@ -1,5 +1,7 @@
 package kr.co.wisetracker.wisetracker;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
@@ -17,21 +19,13 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
   private MethodChannel channel;
+  private Context applicationContext;
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
     channel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "wisetracker");
     channel.setMethodCallHandler(this);
-
-
-    // ############################
-    // Wisetracker SDK Init
-    System.out.println("mrcm flutter wisetracker init start ---------------------------");
-    WiseTracker.initAtApplication(flutterPluginBinding.getApplicationContext());
-    System.out.println("mrcm flutter wisetracker init start ---------------------------");
-    // ############################
-
-
+    this.applicationContext = flutterPluginBinding.getApplicationContext();
   }
 
   // This static function is optional and equivalent to onAttachedToEngine. It supports the old
@@ -52,6 +46,17 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
     if (call.method.equals("getPlatformVersion")) {
       result.success("Android " + android.os.Build.VERSION.RELEASE);
+
+
+    } else if( call.method.equals("init") ){
+
+        // ############################
+        // Wisetracker SDK Init
+        System.out.println("mrcm flutter wisetracker init start ---------------------------");
+        WiseTracker.initAtApplication(this.applicationContext);
+        System.out.println("mrcm flutter wisetracker init start ---------------------------");
+        // ############################
+
     } else {
       result.notImplemented();
     }
