@@ -1,0 +1,38 @@
+group 'kr.co.wisetracker.wisetracker'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/wisetracker/maven' }
+        maven { url 'https://dl.bintray.com/tracker/maven' }
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 19
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+dependencies {
+    compile 'kr.co.wisetracker.insight:SDK_V1:21.3.44' // RELEASE
+}
