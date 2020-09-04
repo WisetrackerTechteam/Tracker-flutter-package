@@ -25,16 +25,18 @@
   } else if ([@"startPage" isEqualToString:call.method]) {
       NSString *pageId = call.arguments[@"pageId"];
       [WiseTracker startPage:pageId];
-  } else if ([@"" isEqualToString:call.method]) {
+  } else if ([@"endPage" isEqualToString:call.method]) {
       NSString *pageId = call.arguments[@"pageId"];
       [WiseTracker endPage:pageId];
-  } else if ([@"" isEqualToString:call.method]) {
-      NSString *pnc = call.arguments[@"pnc"];
-      [WiseTracker setGoalProduct:pnc];
-  } else if ([@"" isEqualToString:call.method]) {
-
-  } else if ([@"" isEqualToString:call.method]) {
-
+  } else if ([@"setGoalProduct" isEqualToString:call.method]) {
+      NSString *code = call.arguments[@"code"];
+      [WiseTracker setGoalProduct:code];
+  } else if ([@"setGoalProductArray" isEqualToString:call.method]) {
+      NSArray *array = [[NSArray alloc] init];
+      array = call.arguments[@"code"];
+      [WiseTracker setGoalProductArray:array];
+  } else if ([@"sendGoalData" isEqualToString:call.method]) {
+      [WiseTracker sendGoalData];
   } else if ([@"" isEqualToString:call.method]) {
 
   } else if ([@"" isEqualToString:call.method]) {

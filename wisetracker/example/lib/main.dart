@@ -1,9 +1,10 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/services.dart';
-import 'package:wisetracker/wisetracker.dart'; //  고객사 적용 방법 ( peubspec.yarl
+import 'package:wisetracker/wisetracker.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,21 +16,20 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   static String _platformVersion = 'Unknown';
   @override
   void initState() {
     super.initState();
     initPlatformState();
 
-    try{
+    try {
       print('init start ');
-      Wisetracker.init("JQMAAB+LCAAAAAAAAACFk9tu4jAQhu/3KZAfgJzIUq1CerEgLdvGakt2peSmMmYIhjiOxk4Lefo6NFKhFfRqPP6/Gf8+Rbd7WQ5eALVQ1YR4Q5fcxj8iBK0a5KDtWBsUVTGomIQJMbj7o7Qh8caY+pfj2Hz4KjQYZHwHOORquMPIea/5XMzq+g4OJKbto09T3tp4yNN8R2XmJ9sspDKx839L2to4zUUi/wW0tfNdnnKXtnM/SbOWynmXH6zuJ20uu5htj3mQtJnb6yO6nfn5lL8e+z5OJpd8bZjeHI2Nxt465MvRsxeGwfjnOLwJA290qUxwWaeHGkg8//3gusEJJyoDBWAP8kZTRWLPdSOnV74w9mwWgC+CwzvqX0dLZTru5jKFYBqs/gstzJQZa7LbyGV4DYiAs30tEL7njZCAJA5PiaVSZS+vYNkUiS5IvGalhsjptHOk0fAEBipj3x2JDTYf1PlSK2bYAqpVolbW1JVjkWxvjbN7sYbU2rPslQ30cNf4HqrCbCx+djvOyRd4A7wTPZ8lAwAA");
+      Wisetracker.init(
+          "JQMAAB+LCAAAAAAAAACFk9tu4jAQhu/3KZAfgJzIUq1CerEgLdvGakt2peSmMmYIhjiOxk4Lefo6NFKhFfRqPP6/Gf8+Rbd7WQ5eALVQ1YR4Q5fcxj8iBK0a5KDtWBsUVTGomIQJMbj7o7Qh8caY+pfj2Hz4KjQYZHwHOORquMPIea/5XMzq+g4OJKbto09T3tp4yNN8R2XmJ9sspDKx839L2to4zUUi/wW0tfNdnnKXtnM/SbOWynmXH6zuJ20uu5htj3mQtJnb6yO6nfn5lL8e+z5OJpd8bZjeHI2Nxt465MvRsxeGwfjnOLwJA290qUxwWaeHGkg8//3gusEJJyoDBWAP8kZTRWLPdSOnV74w9mwWgC+CwzvqX0dLZTru5jKFYBqs/gstzJQZa7LbyGV4DYiAs30tEL7njZCAJA5PiaVSZS+vYNkUiS5IvGalhsjptHOk0fAEBipj3x2JDTYf1PlSK2bYAqpVolbW1JVjkWxvjbN7sYbU2rPslQ30cNf4HqrCbCx+djvOyRd4A7wTPZ8lAwAA");
       print('init end ');
-    }on PlatformException{
+    } on PlatformException {
       print("init faild");
     }
-
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -41,8 +41,6 @@ class _MyAppState extends State<MyApp> {
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
-
-
 
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
@@ -65,14 +63,14 @@ class _MyAppState extends State<MyApp> {
 
 class RandomWordsState extends State<RandomWords> {
   final _suggestions = <WordPair>[];
-  final _saved = Set<WordPair>();     // NEW
+  final _saved = Set<WordPair>(); // NEW
   final _biggerFont = const TextStyle(fontSize: 18.0);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Version '+_MyAppState._platformVersion),
+        title: Text('Version 12345' + _MyAppState._platformVersion),
         actions: [
           IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
         ],
@@ -94,18 +92,21 @@ class RandomWordsState extends State<RandomWords> {
           return _buildRow(_suggestions[index]);
         });
   }
+
   Widget _buildRow(WordPair pair) {
-    final alreadySaved = _saved.contains(pair);  // NEW
+    final alreadySaved = _saved.contains(pair); // NEW
     return ListTile(
       title: Text(
         pair.asPascalCase,
         style: _biggerFont,
       ),
-      trailing: Icon(   // NEW from here...
+      trailing: Icon(
+        // NEW from here...
         alreadySaved ? Icons.favorite : Icons.favorite_border,
         color: alreadySaved ? Colors.red : null,
       ),
-      onTap: () {      // NEW lines from here...
+      onTap: () {
+        // NEW lines from here...
         setState(() {
           if (alreadySaved) {
             _saved.remove(pair);
@@ -113,16 +114,29 @@ class RandomWordsState extends State<RandomWords> {
             _saved.add(pair);
           }
         });
-      },               // ... to here.
+      }, // ... to here.
     );
   }
+
+  void _setProductArray() {
+    setState(() {
+      Wisetracker.setGoalProductArray(['aaa', 'bbbb', 'cddd', 'dddd', 'eeee']);
+      Wisetracker.sendGoalData;
+    });
+  }
+
   void _pushSaved() {
+    log('pushSaved');
+    print("pushsaved print");
+    //Wisetracker.setGoalProduct("productCode");
+    Wisetracker.setGoalProductArray(['aaa', 'bbbb', 'cddd', 'dddd', 'eeee']);
+    Wisetracker.sendGoalData;
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         // NEW lines from here...
         builder: (BuildContext context) {
           final tiles = _saved.map(
-                (WordPair pair) {
+            (WordPair pair) {
               return ListTile(
                 title: Text(
                   pair.asPascalCase,
@@ -141,12 +155,18 @@ class RandomWordsState extends State<RandomWords> {
               title: Text('Saved Suggestions'),
             ),
             body: ListView(children: divided),
+            floatingActionButton: FloatingActionButton(
+              onPressed: _setProductArray,
+              tooltip: 'Increment',
+              child: Icon(Icons.add),
+            ), // This trailing comma makes auto-formatting nicer for build methods.
           );
         }, // ...to here.
       ),
     );
   }
 }
+
 class RandomWords extends StatefulWidget {
   @override
   RandomWordsState createState() => RandomWordsState();
