@@ -102,7 +102,7 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
     }
     return flag;
   }
- 
+
   @Override
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
     boolean doExecute = false;
