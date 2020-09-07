@@ -100,6 +100,7 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
     if( call.arguments != null && call.hasArgument(key)  ){
         flag = (boolean)(call.argument(key));
     }
+  static void endPage
     return flag;
   }
 

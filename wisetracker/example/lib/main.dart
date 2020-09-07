@@ -6,6 +6,8 @@ import 'dart:developer';
 import 'package:flutter/services.dart';
 import 'package:wisetracker/wisetracker.dart';
 
+import '../../lib/wisetracker.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -120,8 +122,10 @@ class RandomWordsState extends State<RandomWords> {
 
   void _setProductArray() {
     setState(() {
-      Wisetracker.setGoalProductArray(['aaa', 'bbbb', 'cddd', 'dddd', 'eeee']);
-      Wisetracker.sendGoalData;
+      Wisetracker.setOrderProduct("orderProuctCode")
+      //Wisetracker.setProduct("nike123", "nikeshoes12345");
+      Wisetracker.setOrderAmount(100.50);
+      Wisetracker.sendTransaction;
     });
   }
 
@@ -130,6 +134,7 @@ class RandomWordsState extends State<RandomWords> {
     print("pushsaved print");
     //Wisetracker.setGoalProduct("productCode");
     Wisetracker.setGoalProductArray(['aaa', 'bbbb', 'cddd', 'dddd', 'eeee']);
+    print("sendGoalData");
     Wisetracker.sendGoalData;
     Navigator.of(context).push(
       MaterialPageRoute<void>(

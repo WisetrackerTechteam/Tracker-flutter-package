@@ -29,13 +29,13 @@ class Wisetracker {
 
   static void startPage(String pageId) async {
     _channel.invokeMethod('startPage', <String, dynamic>{
-      'pageId': pageId,
+      'objc': pageId,
     });
   }
 
   static void endPage(String pageId) async {
     _channel.invokeMethod('endPage', <String, dynamic>{
-      'pageId': pageId,
+      'pageCode': pageId,
     });
   }
 
@@ -222,13 +222,14 @@ class Wisetracker {
 
   static void setGoalProductCategory(String value) async {
     _channel.invokeMethod('setGoalProductCategory', <String, dynamic>{
-      'value': value,
+      'code': value,
     });
   }
 
   static void setGoalProductCategoryArray(List arrayList) async {
-    _channel.invokeMethod(
-        'setGoalProductCategoryArray', <String, dynamic>{'value': arrayList});
+    _channel.invokeMethod('setGoalProductCategoryArray', <String, dynamic>{
+      'code': arrayList,
+    });
   }
 
   static void setProduct(String code, String name) async {
@@ -253,13 +254,13 @@ class Wisetracker {
 
   static void setOrderNPaymentId(String value) async {
     _channel.invokeMethod('setOrderNPaymentId', <String, dynamic>{
-      'value': value,
+      'code': value,
     });
   }
 
   static void setOrderProduct(String value) async {
     _channel.invokeMethod('setOrderProduct', <String, dynamic>{
-      'value': value,
+      'code': value,
     });
   }
 
@@ -405,19 +406,19 @@ class Wisetracker {
 
   static void setSearchKeyword(String value) async {
     _channel.invokeMethod('setSearchKeyword', <String, dynamic>{
-      'value': value,
+      'keyword': value,
     });
   }
 
-  static void setSearchKeywordResult(String value) async {
+  static void setSearchKeywordResult(int value) async {
     _channel.invokeMethod('setSearchKeywordResult', <String, dynamic>{
-      'value': value,
+      'result': value,
     });
   }
 
   static void setSearchKeywordCategory(String value) async {
     _channel.invokeMethod('setSearchKeywordCategory', <String, dynamic>{
-      'value': value,
+      'category': value,
     });
   }
 
@@ -442,7 +443,7 @@ class Wisetracker {
   static void setUserAttribute(String key, String value) async {
     _channel.invokeMethod('setUserAttribute', <String, dynamic>{
       'key': key,
-      'value': value,
+      'attribute': value,
     });
   }
 
@@ -500,31 +501,32 @@ class Wisetracker {
   }
 
   static void setOrderSearchKeywordArray(List arrayList) async {
-    _channel.invokeMethod(
-        'setOrderSearchKeywordArray', <String, dynamic>{'keyword': arrayList});
+    _channel.invokeMethod('setOrderSearchKeywordArray', <String, dynamic>{
+      'keyword': arrayList,
+    });
   }
 
-  static void useIkwdWithConversion(String target) async {
+  static void useIkwdWithConversion(String value) async {
     _channel.invokeMethod('useIkwdWithConversion', <String, dynamic>{
-      'target': target,
+      'target': value,
     });
   }
 
   static void useMvt1WithConversion(String value) async {
     _channel.invokeMethod('useMvt1WithConversion', <String, dynamic>{
-      'value': value,
+      'target': value,
     });
   }
 
   static void useMvt2WithConversion(String value) async {
     _channel.invokeMethod('useMvt2WithConversion', <String, dynamic>{
-      'value': value,
+      'target': value,
     });
   }
 
   static void useMvt3WithConversion(String value) async {
     _channel.invokeMethod('useMvt3WithConversion', <String, dynamic>{
-      'value': value,
+      'target': value,
     });
   }
 
