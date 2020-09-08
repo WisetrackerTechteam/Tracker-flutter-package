@@ -3,8 +3,8 @@
 # Run `pod lib lint wisetracker.podspec' to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'wisetracker'
-  s.version          = '0.0.5'
+  s.name             = 'wisetracker_skd'
+  s.version          = '0.0.777777'
   s.summary          = 'wisetracker SDK flutter plugin'
   s.description      = <<-DESC
 A new flutter plugin project.
