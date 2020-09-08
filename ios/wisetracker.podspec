@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'wisetracker'
-  s.version          = '0.0.4'
+  s.version          = '0.0.5'
   s.summary          = 'wisetracker SDK flutter plugin'
   s.description      = <<-DESC
 A new flutter plugin project.
