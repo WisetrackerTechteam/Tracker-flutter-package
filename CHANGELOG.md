@@ -17,3 +17,7 @@
 ## 0.0.5
 * relocate folder
 
+## 0.0.6
+* relocate folder
+
+
