@@ -6,8 +6,6 @@ import 'dart:developer';
 import 'package:flutter/services.dart';
 import 'package:wisetracker/wisetracker.dart';
 
-import '../../lib/wisetracker.dart';
-
 void main() {
   runApp(MyApp());
 }
@@ -22,16 +20,9 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    initPlatformState();
-
-    try {
-      print('init start ');
-      Wisetracker.init(
+    Wisetracker.init(
           "JQMAAB+LCAAAAAAAAACFk9tu4jAQhu/3KZAfgJzIUq1CerEgLdvGakt2peSmMmYIhjiOxk4Lefo6NFKhFfRqPP6/Gf8+Rbd7WQ5eALVQ1YR4Q5fcxj8iBK0a5KDtWBsUVTGomIQJMbj7o7Qh8caY+pfj2Hz4KjQYZHwHOORquMPIea/5XMzq+g4OJKbto09T3tp4yNN8R2XmJ9sspDKx839L2to4zUUi/wW0tfNdnnKXtnM/SbOWynmXH6zuJ20uu5htj3mQtJnb6yO6nfn5lL8e+z5OJpd8bZjeHI2Nxt465MvRsxeGwfjnOLwJA290qUxwWaeHGkg8//3gusEJJyoDBWAP8kZTRWLPdSOnV74w9mwWgC+CwzvqX0dLZTru5jKFYBqs/gstzJQZa7LbyGV4DYiAs30tEL7njZCAJA5PiaVSZS+vYNkUiS5IvGalhsjptHOk0fAEBipj3x2JDTYf1PlSK2bYAqpVolbW1JVjkWxvjbN7sYbU2rPslQ30cNf4HqrCbCx+djvOyRd4A7wTPZ8lAwAA");
-      print('init end ');
-    } on PlatformException {
-      print("init faild");
-    }
+   
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -72,7 +63,7 @@ class RandomWordsState extends State<RandomWords> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Version 12345' + _MyAppState._platformVersion),
+        title: Text('Version ' + _MyAppState._platformVersion),
         actions: [
           IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
         ],
@@ -122,7 +113,7 @@ class RandomWordsState extends State<RandomWords> {
 
   void _setProductArray() {
     setState(() {
-      Wisetracker.setOrderProduct("orderProuctCode")
+      Wisetracker.setOrderProduct("orderProuctCode");
       //Wisetracker.setProduct("nike123", "nikeshoes12345");
       Wisetracker.setOrderAmount(100.50);
       Wisetracker.sendTransaction;

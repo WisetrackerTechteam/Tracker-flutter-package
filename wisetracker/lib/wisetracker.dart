@@ -29,7 +29,7 @@ class Wisetracker {
 
   static void startPage(String pageId) async {
     _channel.invokeMethod('startPage', <String, dynamic>{
-      'objc': pageId,
+      'obj': pageId,
     });
   }
 

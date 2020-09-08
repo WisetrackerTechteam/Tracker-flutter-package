@@ -59,10 +59,10 @@
            [WiseTracker sendGoalData];
            doExecute = true;
        }else if ([@"startPage" isEqualToString:call.method]) {
-           [WiseTracker startPage:[self getString:call param1:@"pageId"]];
+           [WiseTracker startPage:[self getString:call param1:@"obj"]];
            doExecute = true;
        }else if ([@"endPage" isEqualToString:call.method]) {
-           [WiseTracker endPage:[self getString:call param1:@"pageId"]];
+           [WiseTracker endPage:[self getString:call param1:@"pageCode"]];
            doExecute = true;
        }else if ([@"containsGoalData" isEqualToString:call.method]) {
            [WiseTracker containsGoalData:[self getString:call param1:@"key"]];

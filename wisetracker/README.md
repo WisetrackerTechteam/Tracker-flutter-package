@@ -1,6 +1,6 @@
 # wisetracker
 
-A new flutter plugin project.
+wisetracker mobile sdk flutter plugin
 
 ## Getting Started
 
