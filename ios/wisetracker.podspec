@@ -16,12 +16,10 @@ A new flutter plugin project.
 
   s.ios.deployment_target = '8.0'
   s.requires_arc = true
-  s.static_framework = true
 
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.platform = :ios, '8.0'
   s.ios.dependency 'WiseTracker' 
 
   # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.
