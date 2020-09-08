@@ -1,18 +1,23 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint wisetrackerPlugin.podspec' to validate before publishing.
+# Run `pod lib lint wisetracker.podspec' to validate before publishing.
 #
 Pod::Spec.new do |s|
   s.name             = 'wisetracker'
-  s.version          = '0.0.1'
+  s.version          = '0.0.333'
   s.summary          = 'wisetracker SDK flutter plugin'
   s.description      = <<-DESC
 A new flutter plugin project.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/WisetrackerTechteam/Tracker-flutter-package'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
-  s.source           = { :path => '.' }
+  s.author           = { 'Wisetracker' => 'tech@wisetracker.co.kr' }
+  s.source           = { :git =>  "https://github.com/WisetrackerTechteam/Tracker-flutter-package.git", :tag => 's.version.to_s' }
+
+  s.ios.deployment_target = '8.0'
+  s.requires_arc = true
+  s.static_framework = true
+
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
@@ -20,5 +25,5 @@ A new flutter plugin project.
   s.ios.dependency 'WiseTracker' 
 
   # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64' }
+  # s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64' }
 end
