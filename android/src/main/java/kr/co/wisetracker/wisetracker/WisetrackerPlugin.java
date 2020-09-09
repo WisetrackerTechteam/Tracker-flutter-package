@@ -79,7 +79,11 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
         if( _dl != null && _dl.size() > 0 ){
           result = new double[_dl.size()];
           for(int ix =0; ix< _dl.size(); ix++){
-            result[ix] = _dl.get(ix).doubleValue();
+            if( _dl.get(ix) instanceof Double ){
+              result[ix] = _dl.get(ix).doubleValue();
+            }else if( _dl.get(ix) instanceof Integer ){
+              result[ix] = _dl.get(ix).intValue();
+            }
           }
         }
       }else if ((call.argument(key)) instanceof double[]) {
@@ -105,7 +109,7 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
           for(int ix =0; ix< _il.size(); ix++){
             result[ix] = _il.get(ix).intValue();
           }
-        } 
+        }
       }else if ((call.argument(key)) instanceof int[]) {
         result = (int[])(call.argument(key));
       }
