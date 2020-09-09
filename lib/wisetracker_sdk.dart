@@ -16,8 +16,9 @@ class Wisetracker {
   }
 
   static void initialization(String appKey) async {
-    _channel
-        .invokeMethod('initialization', <String, dynamic>{'appKey': appKey});
+    _channel.invokeMethod('initialization', <String, dynamic>{
+      'appKey': appKey,
+    });
   }
 
   static void get sendTransaction async {
@@ -390,6 +391,12 @@ class Wisetracker {
   static void setOrderQuantity(int value) async {
     _channel.invokeMethod('setOrderQuantity', <String, dynamic>{
       'value': value,
+    });
+  }
+
+  static void setOrderQuantityArray(List ArrayList) async {
+    _channel.invokeMethod('setOrderQuantityArray', <String, dynamic>{
+      'value': ArrayList,
     });
   }
 

@@ -96,6 +96,16 @@ class MyRouteObserver extends RouteObserver<PageRoute<dynamic>> {
       }
       this.screenName = currentScreenName;
     }
+
+  void _setProductArray() {
+    setState(() {
+      Wisetracker.setOrderProduct("orderProuctCode");
+      //Wisetracker.setProduct("nike123", "nikeshoes12345");
+      Wisetracker.setOrderAmountArray([10000.0, 20000.0, 30000.0]);
+      Wisetracker.setOrderQuantityArray([1, 3, 8]);
+      Wisetracker.sendTransaction;
+    });
+
   }
 
   @override
