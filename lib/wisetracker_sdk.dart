@@ -15,8 +15,9 @@ class Wisetracker {
     await _channel.invokeMethod('testFunction');
   }
 
-  static void init(String appKey) async {
-    _channel.invokeMethod('init', <String, dynamic>{'appKey': appKey});
+  static void initialization(String appKey) async {
+    _channel
+        .invokeMethod('initialization', <String, dynamic>{'appKey': appKey});
   }
 
   static void get sendTransaction async {
