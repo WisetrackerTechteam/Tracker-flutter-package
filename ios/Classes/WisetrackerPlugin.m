@@ -46,7 +46,7 @@
           result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
        }else if ([@"testFunction" isEqualToString:call.method]) {
            NSLog(@"testFunction");
-       }else if ([@"init" isEqualToString:call.method]) {
+       }else if ([@"initialization" isEqualToString:call.method]) {
            [WiseTracker applicationKey:[self getString:call param1:@"appKey"]];
            [WiseTracker setApplication:UIApplication.sharedApplication];
            [WiseTracker initEnd];
@@ -234,6 +234,9 @@
            doExecute = true;
        }else if ([@"setOrderQuantity" isEqualToString:call.method]) {
            [WiseTracker setOrderQuantity:[self getInteger:call param1:@"value"]];
+           doExecute = true;
+       }else if ([@"setOrderQuantityArray" isEqualToString:call.method]) {
+           [WiseTracker setOrderQuantityArray:[self getList:call param1:@"value"]];
            doExecute = true;
        }else if ([@"setContents" isEqualToString:call.method]) {
            [WiseTracker setContents:[self getString:call param1:@"value"]];
