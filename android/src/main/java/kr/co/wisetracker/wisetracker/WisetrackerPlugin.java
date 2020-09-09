@@ -55,8 +55,12 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
   }
   private String[] getStringArray(MethodCall call, String key){
     String[] result = null;
-    if( call.arguments != null && call.hasArgument(key)  ){
-      result = (String[])(call.argument(key));
+    if( call.arguments != null && call.hasArgument(key)  ) {
+      if ((call.argument(key)) instanceof List) {
+        result = ((List<String>)(call.argument(key))).toArray(new String[0]);
+      }else if ((call.argument(key)) instanceof String[]){
+        result = (String[])(call.argument(key));
+      }
     }
     return result;
   }
@@ -70,7 +74,12 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
   private double[] getDoubleArray(MethodCall call , String key ){
     double[] result = null;
     if( call.arguments != null && call.hasArgument(key)  ) {
-      result = (double[])(call.argument(key));
+      if ((call.argument(key)) instanceof List) {
+        result = ((List<Double>)(call.argument(key))).toArray(new Double[0]);
+      }else if ((call.argument(key)) instanceof double[]) {
+        result = (double[])(call.argument(key));
+      }
+
     }
     return result;
   }
@@ -84,7 +93,11 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
   private int[] getIntArray(MethodCall call , String key ){
     int[] result = null;
     if( call.arguments != null && call.hasArgument(key)  ) {
+      if ((call.argument(key)) instanceof List) {
+        result = ((List<Integer>)(call.argument(key))).toArray(new Integer[0]);
+      }else if ((call.argument(key)) instanceof int[]) {
         result = (int[])(call.argument(key));
+      }
     }
     return result;
   }
