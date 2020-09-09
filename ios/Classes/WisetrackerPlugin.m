@@ -46,7 +46,7 @@
           result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
        }else if ([@"testFunction" isEqualToString:call.method]) {
            NSLog(@"testFunction");
-       }else if ([@"init" isEqualToString:call.method]) {
+       }else if ([@"initialization" isEqualToString:call.method]) {
            [WiseTracker applicationKey:[self getString:call param1:@"appKey"]];
            [WiseTracker setApplication:UIApplication.sharedApplication];
            [WiseTracker initEnd];
