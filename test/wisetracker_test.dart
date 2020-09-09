@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:wisetracker/wisetracker.dart';
+import 'package:wisetracker_sdk/wisetracker_sdk.dart';
 
 void main() {
   const MethodChannel channel = MethodChannel('wisetracker');
