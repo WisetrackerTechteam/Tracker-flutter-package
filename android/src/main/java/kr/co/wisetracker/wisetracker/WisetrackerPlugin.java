@@ -75,11 +75,20 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
     double[] result = null;
     if( call.arguments != null && call.hasArgument(key)  ) {
       if ((call.argument(key)) instanceof List) {
-        result = ((List<Double>)(call.argument(key))).toArray(new Double[0]);
+        List _dl = (List)(call.argument(key));
+        if( _dl != null && _dl.size() > 0 ){
+          result = new double[_dl.size()];
+          for(int ix =0; ix< _dl.size(); ix++){
+            if( _dl.get(ix) instanceof Double ){
+              result[ix] = ((Double)_dl.get(ix)).doubleValue();
+            }else if( _dl.get(ix) instanceof Integer ){
+              result[ix] = ((Integer)_dl.get(ix)).intValue();
+            }
+          }
+        }
       }else if ((call.argument(key)) instanceof double[]) {
         result = (double[])(call.argument(key));
       }
-
     }
     return result;
   }
@@ -94,7 +103,13 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
     int[] result = null;
     if( call.arguments != null && call.hasArgument(key)  ) {
       if ((call.argument(key)) instanceof List) {
-        result = ((List<Integer>)(call.argument(key))).toArray(new Integer[0]);
+        List<Integer> _il = (List<Integer>)(call.argument(key));
+        if( _il != null && _il.size() > 0 ){
+          result = new int[_il.size()];
+          for(int ix =0; ix< _il.size(); ix++){
+            result[ix] = _il.get(ix).intValue();
+          }
+        }
       }else if ((call.argument(key)) instanceof int[]) {
         result = (int[])(call.argument(key));
       }
@@ -113,7 +128,6 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
     if( call.arguments != null && call.hasArgument(key)  ){
         flag = (boolean)(call.argument(key));
     }
-  static void endPage
     return flag;
   }
 
@@ -122,7 +136,11 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
     boolean doExecute = false;
     try{
       switch (call.method){
-        case "initialization":  WiseTracker.initAtApplication(this.applicationContext); doExecute = true; break; // Wisetracker SDK Init
+        case "initialization":
+          WiseTracker.initAtApplication(this.applicationContext);
+          WiseTracker.startPage(this);
+          doExecute = true;
+          break; // Wisetracker SDK Init
         case "initStart":  WiseTracker.initStart(this.applicationContext);  doExecute = true; break;
         case "initEnd": WiseTracker.initEnd();  doExecute = true; break;
         case "initPushSet":  WiseTracker.initPushSet(this.getString(call,"key"), this.getString(call,"value"));  doExecute = true; break;
