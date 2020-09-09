@@ -137,8 +137,7 @@ public class WisetrackerPlugin implements FlutterPlugin, MethodCallHandler {
     try{
       switch (call.method){
         case "initialization":
-          WiseTracker.initAtApplication(this.applicationContext);
-          WiseTracker.startPage(this);
+          WiseTracker.initAtApplication(this.applicationContext); 
           doExecute = true;
           break; // Wisetracker SDK Init
         case "initStart":  WiseTracker.initStart(this.applicationContext);  doExecute = true; break;
