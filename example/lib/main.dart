@@ -47,13 +47,11 @@ class Screen1 extends StatelessWidget {
             SizedBox(height: 30.0),
             RaisedButton(
               child: Text('Screen 2'),
-              //onPressed: () => Navigator.of(context).pushNamed('screen2'),
-              onPressed: () => _eventOccured,
+              onPressed: () => Navigator.of(context).pushNamed('screen2'),
             ),
             RaisedButton(
               child: Text('Screen 3'),
-              //onPressed: () => Navigator.of(context).pushNamed('screen3'),
-              onPressed: () => _eventOccured2,
+              onPressed: () => Navigator.of(context).pushNamed('screen3'),
             )
           ],
         ),
@@ -64,11 +62,6 @@ class Screen1 extends StatelessWidget {
         child: Icon(Icons.add),
       ),
     );
-  }
-
-  void _eventOccured() {
-    Wisetracker.setGoalProductArray(["aaa", "bbb", "ccc"]);
-    Wisetracker.sendTransaction;
   }
 
   void _eventOccured2() {
@@ -95,11 +88,9 @@ class Screen1 extends StatelessWidget {
 class Screen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //Wisetracker.startPage("screen2");
-
-    print("set pi ???????????");
+    //
     Wisetracker.setPageIdentity("SCR2");
-
+    Wisetracker.setProduct("12345", "12345name");
     return Scaffold(appBar: AppBar(), body: Center(child: Text('Screen 2')));
   }
 }
