@@ -557,4 +557,11 @@ class Wisetracker {
       'value': value,
     });
   }
+
+  static void putRevenueData(String key, String value) {
+    _channel.invokeMethod('putRevenueData', <String, dynamic>{
+      'key': key,
+      'value': value,
+    });
+  }
 }

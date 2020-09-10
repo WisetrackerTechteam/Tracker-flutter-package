@@ -312,6 +312,9 @@
            doExecute = true;
        }else if ([@"sendImmediatelyClickData" isEqualToString:call.method]) {
            doExecute = true;
+       }else if ( [@"putRevenueData" isEqualToString:call.method]) {
+           [WiseTracker putRevenueData:[self getString:call param1:@"key"] value:[self getString:call param1:@"value"]];
+           doExecute = true;
        }
     }
     @catch (NSException * e) {
