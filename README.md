@@ -18,4 +18,4 @@ A Flutter plugin for Wisetracker SDK.
 
 Visit wisetracker's document guide site
 
-[Wisetrakcer Document site](http://document.wisetracker.co.kr/v1/docs/sdk/flutter/flutter-install-guide)
+[Wisetracker Document site](http://document.wisetracker.co.kr/v1/docs/sdk/flutter/flutter-install-guide)

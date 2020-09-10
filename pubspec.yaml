@@ -1,6 +1,6 @@
 name: wisetracker_sdk
 description: This is wisetracker's mobile sdk flutter plugin which is for attribution and inApp analytics. 
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/WisetrackerTechteam/Tracker-flutter-package
 
 environment:
