@@ -21,11 +21,11 @@ class Wisetracker {
     });
   }
 
-  static void get sendTransaction {
+  static void sendTransaction() {
     _channel.invokeMethod('sendTransaction');
   }
 
-  static void get sendGoalData {
+  static void sendGoalData() {
     _channel.invokeMethod('sendGoalData');
   }
 

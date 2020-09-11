@@ -75,13 +75,21 @@ class Screen1 extends StatelessWidget {
     // Wisetracker.setOrderNo("tr012345");
     // Wisetracker.setPageIdentity("ODR");
 
-    Wisetracker.setOrderNo("orderno20200910");
-    Wisetracker.setProduct("nike123", "nikeshoes12345");
+    // Wisetracker.setOrderNo("orderno20200910");
+    // Wisetracker.setProduct("nike123", "nikeshoes12345");
+    // Wisetracker.setPageIdentity("ODR");
+    // Wisetracker.setOrderAmountArray([10000.0, 20000.0, 30000.0]);
+    // Wisetracker.setOrderQuantityArray([1, 3, 8]);
+    // Wisetracker.putRevenueData("pnc", "pnc11111111");
+    // Wisetracker.setOrderProductArray(['상품코드1', '상품코드2']);
+
+    Wisetracker.setOrderProduct("3903367494");
+    Wisetracker.setOrderProductCategory("100131709");
+    Wisetracker.setOrderQuantity(100);
+    Wisetracker.setOrderAmount(12000.0);
+    Wisetracker.setOrderNo("NP39890293");
     Wisetracker.setPageIdentity("ODR");
-    Wisetracker.setOrderAmountArray([10000.0, 20000.0, 30000.0]);
-    Wisetracker.setOrderQuantityArray([1, 3, 8]);
-    Wisetracker.putRevenueData("pnc", "pnc11111111");
-    Wisetracker.sendTransaction;
+    Wisetracker.sendTransaction();
   }
 }
 

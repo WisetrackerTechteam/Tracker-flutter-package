@@ -29,7 +29,7 @@
 }
 
 - (NSInteger)getInteger:(FlutterMethodCall*)call param1:(NSString*)param1 {
-    NSInteger returnInt = (NSInteger) call.arguments[param1];
+    NSInteger returnInt = [call.arguments[param1] integerValue];
     return returnInt;
 }
 
