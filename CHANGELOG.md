@@ -9,3 +9,7 @@
 ## 0.0.3
 
 * final release version
+
+## 0.0.4
+
+* minor bug fix
