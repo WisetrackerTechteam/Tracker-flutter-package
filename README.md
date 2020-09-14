@@ -11,8 +11,8 @@ A Flutter plugin for Wisetracker SDK.
 
 ### This plugin is built for
 
-- iOS AppsFlyerSDK **21.3.24**
-- Android AppsFlyerSDK **21.3.46**
+- iOS WiseTracker SDK **21.3.24**
+- Android WiseTracker SDK **21.3.46**
 
 ## Getting Started
 
