@@ -13,3 +13,6 @@
 ## 0.0.4
 
 * minor bug fix
+
+## 0.0.5
+* version control
