@@ -33,10 +33,10 @@
     return returnInt;
 }
 
-//- (double)getDouble:(FlutterMethodCall*)call param1:(NSString*)param1 {
-//    double returnDouble = (double) call.arguments[param1];
-//    return returnDouble;
-//}
+- (double)getDouble:(FlutterMethodCall*)call param1:(NSString*)param1 {
+   double returnDouble = [call.arguments[param1] doubleValue];
+   return returnDouble;
+}
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
     bool doExecute = false;
@@ -107,7 +107,7 @@
            [WiseTracker setAdType:[self getString:call param1:@"code"] period:[NSNumber numberWithInteger:[self getInteger:call param1:@"period"]]  ];
            doExecute = true;
        }else if ([@"setGoal" isEqualToString:call.method]) {
-           [WiseTracker setGoal:[self getString:call param1:@"key"] value:[NSNumber numberWithInteger:[self getInteger:call param1:@"value"]]  ];
+           [WiseTracker setGoal:[self getString:call param1:@"key"] value:[NSNumber numberWithDouble:[self getDouble:call param1:@"value"]]  ];
            doExecute = true;
        }else if ([@"setGoalProduct" isEqualToString:call.method]) {
            [WiseTracker setGoalProduct:[self getString:call param1:@"value"]];
