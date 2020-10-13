@@ -131,7 +131,7 @@ class Wisetracker {
     });
   }
 
-  static void setGoal(String key, String value) {
+  static void setGoal(String key, double value) {
     _channel.invokeMethod('setGoal', <String, dynamic>{
       'key': key,
       'value': value,
@@ -394,9 +394,9 @@ class Wisetracker {
     });
   }
 
-  static void setOrderQuantityArray(List ArrayList) {
+  static void setOrderQuantityArray(List arrayList) {
     _channel.invokeMethod('setOrderQuantityArray', <String, dynamic>{
-      'value': ArrayList,
+      'value': arrayList,
     });
   }
 
